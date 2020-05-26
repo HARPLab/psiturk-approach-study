@@ -76,7 +76,7 @@ var StroopExperiment = function() {
 			d3.select("#query").html('<p id="prompt">Press left arrow for table 1, "right arrow for table 2, "space" to skip.</p>');
 
 			if (stim[2] == "show_video") {
-				d3.select("#query").html('<p id="prompt"><iframe width="560" height="315" src="https://www.youtube.com/embed/y881t8ilMyc" frameborder="0" allowfullscreen></iframe></iframe></p>');
+				d3.select("#query").html('<p id="prompt"><iframe width="560" height="315" src="../videos/restaurant_example.mp4" frameborder="0" allowfullscreen></iframe></iframe></p>');
 			}
 		}
 	};

@@ -134,7 +134,7 @@ var StroopExperiment = function() {
 			.attr("id","word")
 			.style("color",color)
 			.style("text-align","center")
-			.style("font-size","150px")
+			.style("font-size","50px")
 			.style("font-weight","400")
 			.style("margin","20px")
 			.text(text);

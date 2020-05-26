@@ -39,11 +39,10 @@ def my_custom_view():
     current_app.logger.info("Reached /my_custom_view")
     import datetime
     now = datetime.datetime.now()
-    print ("Current date and time : ")
-    print (now.strftime("%Y-%m-%d %H:%M:%S"))
-    
+    pretty_date = now.strftime("%Y-%m-%d %H:%M:%S")
+
     try:
-        return render_template('custom.html')
+        return render_template('custom.html', python_gen=pretty_date, participants_string=JSON.stringify(users))
     except TemplateNotFound:
         abort(404)
 

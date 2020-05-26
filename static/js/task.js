@@ -51,15 +51,15 @@ var StroopExperiment = function() {
 
 	// Stimuli for a basic Stroop experiment
 	var stims = [
-			["SHIP", "red", "unrelated"],
-			["MONKEY", "green", "unrelated"],
-			["ZAMBONI", "blue", "unrelated"],
-			["RED", "red", "congruent"],
-			["GREEN", "green", "congruent"],
-			["BLUE", "blue", "congruent"],
-			["GREEN", "red", "incongruent"],
-			["BLUE", "green", "incongruent"],
-			["RED", "blue", "incongruent"]
+			["CONDITION 1a", "red", "show_video"],
+			["CONDITION 2a", "orange", "unrelated"],
+			["CONDITION 3a", "yellow", "unrelated"],
+			["CONDITION 1b", "green", "congruent"],
+			["CONDITION 2b", "blue", "congruent"],
+			["CONDITION 3b", "black", "congruent"],
+			["CONDITION 1c", "gray", "incongruent"],
+			["CONDITION 2c", "purple", "incongruent"],
+			["CONDITION 3c", "pink", "incongruent"]
 		];
 
 	stims = _.shuffle(stims);
@@ -73,7 +73,11 @@ var StroopExperiment = function() {
 			show_word( stim[0], stim[1] );
 			wordon = new Date().getTime();
 			listening = true;
-			d3.select("#query").html('<p id="prompt">Type "R" for Red, "B" for blue, "G" for green.</p>');
+			d3.select("#query").html('<p id="prompt">Press left arrow for table 1, "right arrow for table 2, "space" to skip.</p>');
+
+			if (stim[2] == "show_video") {
+				d3.select("#query").html('<p id="prompt"><iframe width="560" height="315" src="https://www.youtube.com/embed/y881t8ilMyc" frameborder="0" allowfullscreen></iframe></iframe></p>');
+			}
 		}
 	};
 	
@@ -84,17 +88,17 @@ var StroopExperiment = function() {
 			response;
 
 		switch (keyCode) {
-			case 82:
-				// "R"
-				response="red";
+			case 37:
+				// "left arrow"
+				response="left";
 				break;
-			case 71:
-				// "G"
-				response="green";
+			case 39:
+				// "right arrow"
+				response="right";
 				break;
 			case 66:
 				// "B"
-				response="blue";
+				response="skip";
 				break;
 			default:
 				response = "";

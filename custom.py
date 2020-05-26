@@ -37,6 +37,11 @@ custom_code = Blueprint('custom_code', __name__,
 def my_custom_view():
     # Print message to server.log for debugging
     current_app.logger.info("Reached /my_custom_view")
+    import datetime
+    now = datetime.datetime.now()
+    print ("Current date and time : ")
+    print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    
     try:
         return render_template('custom.html')
     except TemplateNotFound:
